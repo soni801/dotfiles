@@ -122,6 +122,7 @@ alias pwd=ptpwd
 alias cp=ptcp
 alias cat=bat
 alias ytdl=youtube-dl
+alias pi="ssh soni@10.100.0.125"
 
 # asdf stuff
 . /opt/asdf-vm/asdf.sh
@@ -134,3 +135,7 @@ alias ytdl=youtube-dl
 # ( ) # Hide shell job control messages.
 # Not supported in the "fish" shell.
 (cat ~/.cache/wal/sequences &)
+
+# Some zsh bullshittery
+setopt correct
+setopt no_beep
