@@ -122,7 +122,6 @@ alias pwd=ptpwd
 alias cp=ptcp
 alias cat=bat
 alias ytdl=youtube-dl
-alias pi="ssh soni@10.100.0.125"
 
 # asdf stuff
 . /opt/asdf-vm/asdf.sh
