@@ -121,7 +121,7 @@ alias ls="lsd -aF"
 alias pwd=ptpwd
 alias cp=ptcp
 alias cat=bat
-alias ytdl=youtube-dl
+alias ytdl=yt-dlp
 
 # asdf stuff
 . /opt/asdf-vm/asdf.sh
