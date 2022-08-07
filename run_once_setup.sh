@@ -5,7 +5,7 @@ sudo pacman -Syu --noconfirm
 
 # Install needed packages
 sudo pacman -S zsh git base-devel --needed --noconfirm
-sudo pacman -S bat chezmoi neovim python-pywal lsd alacritty yt-dlp --needed --noconfirm
+sudo pacman -S bat chezmoi neovim lsd alacritty yt-dlp --needed --noconfirm
 
 # Change the default shell to zsh for the current user
 sudo chsh -s $(which zsh) $(whoami)
@@ -42,4 +42,4 @@ zsh -c "POWERLEVEL9K_DISABLE_CONFIGURATION_WIZARD=true; \
 	asdf install nodejs latest; \
 	asdf global nodejs latest; \
 	cd; \
-	echo Done! Make sure to apply JetBrainsMono Nerd Font before configuring p10k."
+	echo Done!"
