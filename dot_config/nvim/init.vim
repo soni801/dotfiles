@@ -14,6 +14,7 @@ Plug 'skanehira/denops-docker.vim' " Docker support
 Plug 'arcticicestudio/nord-vim' " Nord color scheme
 Plug 'kyazdani42/nvim-web-devicons' " File icons
 Plug 'kyazdani42/nvim-tree.lua' " File tree
+Plug 'romgrk/barbar.nvim' " File tabs
 
 call plug#end()
 
