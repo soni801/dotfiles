@@ -9,5 +9,3 @@ existing dotfiles, so make sure to have a backup.
 The included run_once script should automatically run, and will download necessary
 applications and dependencies before applying the configuration.
 
-The setup script currently only supports Arch Linux and its derivatives.
-
