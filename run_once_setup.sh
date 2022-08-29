@@ -38,8 +38,8 @@ elif [[ "${is_debian}" == "true" ]]; then
 
   # Install neovim
   wget https://github.com/neovim/neovim/releases/download/v0.7.2/nvim-linux64.deb
-  sudo dpkg -i nvim_linux64.deb
-  rm nvim_linux64.deb
+  sudo dpkg -i nvim-linux64.deb
+  rm nvim-linux64.deb
 
   # Install lsd
   wget https://github.com/Peltoche/lsd/releases/download/0.22.0/lsd_0.22.0_amd64.deb
