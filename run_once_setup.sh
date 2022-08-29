@@ -26,7 +26,7 @@ elif [[ "${is_debian}" == "true" ]]; then
 
   # Install packages
   sudo apt install zsh git wget -y
-  sudo apt install neovim cargo yt-dlp -y
+  sudo apt install cargo yt-dlp -y
 
   # Install bat
   sudo apt install bat -y
@@ -35,6 +35,11 @@ elif [[ "${is_debian}" == "true" ]]; then
 
   # Install chezmoi
   sh -c "$(curl -fsLS https://chezmoi.io/get)"
+
+  # Install neovim
+  wget https://github.com/neovim/neovim/releases/download/v0.7.2/nvim-linux64.deb
+  sudo dpkg -i nvim_linux64.deb
+  rm nvim_linux64.deb
 
   # Install lsd
   wget https://github.com/Peltoche/lsd/releases/download/0.22.0/lsd_0.22.0_amd64.deb
@@ -94,9 +99,8 @@ curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --c
 # Install neovim plugins
 nvim +PlugInstall +q +q
 
-# Change shell to zsh without launching the p10k wizard, then install nodejs through asdf
-zsh -c "POWERLEVEL9K_DISABLE_CONFIGURATION_WIZARD=true; \
-	. /opt/asdf-vm/asdf.sh;
+# Change shell to zsh, then install nodejs through asdf
+zsh -c ". ~/.zshrc; \
 	asdf plugin add nodejs; \
 	asdf install nodejs latest; \
 	asdf global nodejs latest; \
