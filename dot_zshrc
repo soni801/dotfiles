@@ -123,8 +123,12 @@ alias cp=ptcp
 alias cat=bat
 alias ytdl=yt-dlp
 
-# asdf stuff
-. /opt/asdf-vm/asdf.sh
+# get asdf to work across distros
+if [[ -f /opt/asdf-vm/asdf.sh ]]; then
+  . /opt/asdf-vm/asdf.sh
+elif [[ -f $HOME/.asdf/asdf.sh ]]; then
+  . $HOME/.asdf/asdf.sh
+fi
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
