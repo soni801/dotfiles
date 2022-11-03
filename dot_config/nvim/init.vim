@@ -15,6 +15,7 @@ Plug 'arcticicestudio/nord-vim' " Nord color scheme
 Plug 'kyazdani42/nvim-web-devicons' " File icons
 Plug 'kyazdani42/nvim-tree.lua' " File tree
 Plug 'romgrk/barbar.nvim' " File tabs
+Plug 'elkowar/yuck.vim' " Yuck support (for eww)
 
 call plug#end()
 
