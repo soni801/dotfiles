@@ -10,11 +10,11 @@ cd ~
 # Install base packages
 if [[ "${is_arch}" == "true" ]]; then
   # Update system
-  sudo pacman -Syu --noconfirm
+  yes | sudo pacman -Syu
 
   # Install packages
-  sudo pacman -S zsh git base-devel --needed --noconfrm
-  sudo pacman -S bat chezmoi neovim lsd alacritty yt-dlp --needed --noconfirm
+  yes | sudo pacman -S zsh git base-devel --needed
+  yes | sudo pacman -S bat chezmoi neovim lsd alacritty yt-dlp --needed
 
   # Install yay
   git clone https://aur.archlinux.org/yay.git
@@ -72,7 +72,7 @@ git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$
 # Install other packages
 if [[ "${is_arch}" == "true" ]]; then
   # Install AUR packages
-  yay -S asdf-vm nerd-fonts-jetbrains-mono ptsh --answerdiff=None --noconfirm
+  yes | yay -S asdf-vm nerd-fonts-jetbrains-mono ptsh --answerdiff=None
 elif [[ "${is_debian}" == "true" ]]; then
   # Install asdf
   git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.10.2
@@ -94,7 +94,7 @@ else
 fi
 
 # Download vim-plug
-curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 
 # Install neovim plugins
 nvim +PlugInstall +q +q
