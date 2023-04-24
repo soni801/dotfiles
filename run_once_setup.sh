@@ -4,6 +4,15 @@
 is_arch=$(test -f /etc/arch-release && echo true || echo false)
 is_debian=$(test -f /etc/debian_version && echo true || echo false)
 
+if [[ "${is_arch}" == "true" ]]; then
+  echo "Detected distribution: Arch (or derivative)"
+elif [[ "${is_debian}" == "true" ]]; then
+  echo "Detected distribution: Debian (or derivative)"
+else
+  echo "Unsupported distribution"
+  exit 1
+fi
+
 # Go to home directory
 cd ~
 
@@ -19,14 +28,12 @@ elif [[ "${is_debian}" == "true" ]]; then
   sudo mkdir -p /etc/apt/keyrings
   curl -fsSL https://repo.charm.sh/apt/gpg.key | sudo gpg --dearmor -o /etc/apt/keyrings/charm.gpg
   echo "deb [signed-by=/etc/apt/keyrings/charm.gpg] https://repo.charm.sh/apt/ * *" | sudo tee /etc/apt/sources.list.d/charm.list
+
   # Update source lists
   sudo apt update
 
   # Install gum
   sudo apt install gum -y
-else
-  echo "Unsupported distribution"
-  exit 1
 fi
 
 # Let the user select which components to install
@@ -40,8 +47,8 @@ if [[ "${is_arch}" == "true" ]]; then
     # Update system
     yes | sudo pacman -Syu
 
-    # Install shell and development tools
-    yes | sudo pacman -S zsh git base-devel --needed
+    # Install development tools
+    yes | sudo pacman -S git base-devel --needed
 
     # Install yay
     git clone https://aur.archlinux.org/yay.git
@@ -51,7 +58,7 @@ if [[ "${is_arch}" == "true" ]]; then
 
   # Install configured packages
   if [[ "${components}" =~ "Configured packages" ]]; then
-    yes | sudo pacman -S bat chezmoi neovim lsd alacritty yt-dlp --needed
+    yes | yay -S zsh bat chezmoi neovim lsd yt-dlp asdf-vm ptsh --needed --answerdiff=None
   fi
 elif [[ "${is_debian}" == "true" ]]; then
   # Install required dependencies
@@ -60,13 +67,13 @@ elif [[ "${is_debian}" == "true" ]]; then
     sudo apt full-upgrade -y
 
     # Install packages
-    sudo apt install zsh git wget -y
+    sudo apt install git wget -y
   fi
 
   # Install configured packages
   if [[ "${components}" =~ "Configured packages" ]]; then
     # Install apt packages
-    sudo apt install cargo yt-dlp -y
+    sudo apt install zsh cargo yt-dlp -y
 
     # Install bat
     sudo apt install bat -y
@@ -86,14 +93,16 @@ elif [[ "${is_debian}" == "true" ]]; then
     sudo dpkg -i lsd_0.22.0_amd64.deb
     rm lsd_0.22.0_amd64.deb
 
-    # Install alacritty
-    sudo apt install cmake g++ pkg-config libfontconfig-dev libxcb-xfixes0-dev -y
-    cargo install alacritty
-    export PATH="$HOME/.cargo/bin:$PATH"
+    # Install asdf
+    git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.10.2
+
+    # Install ptsh
+    sudo apt install gcc make -y
+    git clone https://github.com/jszczerbinsky/ptSh
+    cd ptSh
+    make
+    sudo make install
   fi
-else
-  echo "Unsupported distribution"
-  exit 1
 fi
 
 # Install shell extensions
@@ -113,39 +122,21 @@ if [[ "${components}" =~ "Shell extensions" ]]; then
   git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 fi
 
-# Install other packages
-if [[ "${is_arch}" == "true" ]]; then
-  if [[ "${components}" =~ "Configured packages" ]]; then
-    # Install AUR packages
-    yes | yay -S asdf-vm ptsh --answerdiff=None
-  fi
-elif [[ "${is_debian}" == "true" ]]; then
-  if [[ "${components}" =~ "Configured packages" ]]; then
-    # Install asdf
-    git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.10.2
-
-    # Install ptsh
-    sudo apt install gcc make -y
-    git clone https://github.com/jszczerbinsky/ptSh
-    cd ptSh
-    make
-    sudo make install
-  fi
-else
-  log_warn "Unsupported distribution"
-  exit 1
-fi
-
 # Install GUI configuration
 if [[ "${components}" =~ "GUI configuration" ]]; then
   if [[ "${is_arch}" == "true" ]]; then
-    # Install JetBrainsMono Nerd Font
-    yes | sudo pacman -S ttf-jetbrains-mono-nerd
+    # Install JetBrainsMono Nerd Font & alacritty
+    yes | sudo pacman -S ttf-jetbrains-mono-nerd alacritty
   elif [[ "${is_debian}" == "true" ]]; then
     # Install JetBrainsMono Nerd Font
     wget https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/JetBrainsMono/Ligatures/Regular/complete/JetBrains%20Mono%20Regular%20Nerd%20Font%20Complete%20Mono.ttf
     sudo mv 'JetBrains Mono Regular Nerd Font Complete Mono.ttf' /usr/local/share/fonts/
     fc-cache
+
+    # Install alacritty
+    sudo apt install cmake g++ pkg-config libfontconfig-dev libxcb-xfixes0-dev -y
+    cargo install alacritty
+    export PATH="$HOME/.cargo/bin:$PATH"
   fi
 fi
 
