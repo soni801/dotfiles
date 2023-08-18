@@ -125,8 +125,8 @@ fi
 # Install GUI configuration
 if [[ "${components}" =~ "GUI configuration" ]]; then
   if [[ "${is_arch}" == "true" ]]; then
-    # Install JetBrainsMono Nerd Font & alacritty
-    yes | sudo pacman -S ttf-jetbrains-mono-nerd alacritty
+    # Install packages
+    yes | sudo pacman -S ttf-jetbrains-mono-nerd alacritty rofi polybar feh picom
   elif [[ "${is_debian}" == "true" ]]; then
     # Install JetBrainsMono Nerd Font
     wget https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/JetBrainsMono/Ligatures/Regular/complete/JetBrains%20Mono%20Regular%20Nerd%20Font%20Complete%20Mono.ttf
@@ -138,6 +138,11 @@ if [[ "${components}" =~ "GUI configuration" ]]; then
     cargo install alacritty
     export PATH="$HOME/.cargo/bin:$PATH"
   fi
+
+  # Download wallpaper
+  sudo mkdir /usr/share/backgrounds
+  wget https://github.com/linuxdotexe/nordic-wallpapers/blob/master/wallpapers/misty_mountains.jpg?raw=true
+  sudo mv misty_mountains.jpg /usr/share/backgrounds/
 fi
 
 if [[ "${components}" =~ "Configured packages" ]]; then
