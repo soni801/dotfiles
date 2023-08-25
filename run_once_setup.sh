@@ -58,7 +58,7 @@ if [[ "${is_arch}" == "true" ]]; then
 
   # Install configured packages
   if [[ "${components}" =~ "Configured packages" ]]; then
-    yes | yay -S zsh bat chezmoi neovim lsd yt-dlp asdf-vm ptsh --needed --answerdiff=None
+    yes | yay -S zsh bat chezmoi neovim lsd yt-dlp asdf-vm ptsh tealdeer --needed --answerdiff=None
   fi
 elif [[ "${is_debian}" == "true" ]]; then
   # Install required dependencies
@@ -127,6 +127,12 @@ if [[ "${components}" =~ "GUI configuration" ]]; then
   if [[ "${is_arch}" == "true" ]]; then
     # Install packages
     yes | sudo pacman -S ttf-jetbrains-mono-nerd alacritty rofi polybar feh picom
+  
+    # Install xborders
+    yes | yay -S python-cairo python-requests libwnck3 --needed --answerdiff=None
+    mkdir -p GitHub/xborder
+    git clone https://github.com/deter0/xborder GitHub/xborder
+    chmod +x GitHub/xborder/xborders
   elif [[ "${is_debian}" == "true" ]]; then
     # Install JetBrainsMono Nerd Font
     wget https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/JetBrainsMono/Ligatures/Regular/complete/JetBrains%20Mono%20Regular%20Nerd%20Font%20Complete%20Mono.ttf
