@@ -51,7 +51,7 @@ if [[ "${is_arch}" == "true" ]]; then
     yes | sudo pacman -S git base-devel --needed
 
     # Install yay
-    git clone https://aur.archlinux.org/yay.git
+    git clone --depth=1 https://aur.archlinux.org/yay.git
     cd yay
     makepkg -si --noconfirm
   fi
@@ -98,12 +98,15 @@ elif [[ "${is_debian}" == "true" ]]; then
 
     # Install ptsh
     sudo apt install gcc make -y
-    git clone https://github.com/jszczerbinsky/ptSh
+    git clone --depth=1 https://github.com/jszczerbinsky/ptSh
     cd ptSh
     make
     sudo make install
   fi
 fi
+
+# Return to home directory
+cd ~
 
 # Install shell extensions
 if [[ "${components}" =~ "Shell extensions" ]]; then
@@ -114,9 +117,9 @@ if [[ "${components}" =~ "Shell extensions" ]]; then
   sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --keep-zshrc --unattended
 
   # Install oh-my-zsh plugins
-  git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-  git clone https://github.com/zdharma-continuum/fast-syntax-highlighting ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/fast-syntax-highlighting
-  git clone https://github.com/Cloudstek/zsh-plugin-appup ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/appup
+  git clone --depth=1 https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+  git clone --depth=1 https://github.com/zdharma-continuum/fast-syntax-highlighting ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/fast-syntax-highlighting
+  git clone --depth=1 https://github.com/Cloudstek/zsh-plugin-appup ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/appup
 
   # Download powerlevel10k
   git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
@@ -131,7 +134,7 @@ if [[ "${components}" =~ "GUI configuration" ]]; then
     # Install xborders
     yes | yay -S python-cairo python-requests libwnck3 --needed --answerdiff=None
     mkdir -p GitHub/xborder
-    git clone https://github.com/deter0/xborder GitHub/xborder
+    git clone --depth=1 https://github.com/deter0/xborder GitHub/xborder
     chmod +x GitHub/xborder/xborders
   elif [[ "${is_debian}" == "true" ]]; then
     # Install JetBrainsMono Nerd Font
