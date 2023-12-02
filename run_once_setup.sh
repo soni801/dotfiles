@@ -1,5 +1,14 @@
 #!/usr/bin/env bash
 
+# Ask user for confirmation
+read -p "Run the install script? [y/N] " -n 1 -r
+echo
+
+# Stop script if user does not want to continue
+if [[ ! $REPLY =~ ^[Yy]$ ]]; then
+  [[ "$0" = "$BASH_SOURCE" ]] && exit 0 || return 0
+fi
+
 # Test for distro
 is_arch=$(test -f /etc/arch-release && echo true || echo false)
 is_debian=$(test -f /etc/debian_version && echo true || echo false)
@@ -131,7 +140,7 @@ fi
 if [[ "${components}" =~ "GUI configuration" ]]; then
   if [[ "${is_arch}" == "true" ]]; then
     # Install packages
-    yes | sudo pacman -S ttf-jetbrains-mono-nerd alacritty rofi polybar feh picom
+    yes | sudo pacman -S ttf-jetbrains-mono-nerd alacritty rofi polybar feh picom grim slurp wl-clipboard swaync
   
     # Install xborders
     yes | yay -S python-cairo python-requests libwnck3 --needed --answerdiff=None
