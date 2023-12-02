@@ -58,7 +58,7 @@ if [[ "${is_arch}" == "true" ]]; then
 
   # Install configured packages
   if [[ "${components}" =~ "Configured packages" ]]; then
-    yes | yay -S zsh bat chezmoi neovim lsd yt-dlp asdf-vm ptsh tealdeer --needed --answerdiff=None
+    yes | yay -S zsh bat chezmoi neovim lsd yt-dlp asdf-vm ptsh tealdeer git-delta --needed --answerdiff=None
   fi
 elif [[ "${is_debian}" == "true" ]]; then
   # Install required dependencies
@@ -102,6 +102,8 @@ elif [[ "${is_debian}" == "true" ]]; then
     cd ptSh
     make
     sudo make install
+
+    # TODO: git-delta should be installed here too, but i haven't been bothered implementing it yet
   fi
 fi
 
@@ -150,7 +152,7 @@ if [[ "${components}" =~ "GUI configuration" ]]; then
 
   # Download wallpaper
   sudo mkdir /usr/share/backgrounds
-  wget https://github.com/linuxdotexe/nordic-wallpapers/blob/master/wallpapers/misty_mountains.jpg?raw=true
+  wget https://github.com/linuxdotexe/nordic-wallpapers/blob/master/wallpapers/misty_mountains.jpg
   sudo mv misty_mountains.jpg /usr/share/backgrounds/
 fi
 
