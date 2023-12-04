@@ -140,7 +140,7 @@ fi
 if [[ "${components}" =~ "GUI configuration" ]]; then
   if [[ "${is_arch}" == "true" ]]; then
     # Install packages
-    yes | sudo pacman -S ttf-jetbrains-mono-nerd alacritty rofi polybar feh picom grim slurp wl-clipboard swaync waybar
+    yes | yay -S ttf-jetbrains-mono-nerd alacritty rofi polybar feh picom grim slurp wl-clipboard swaync waybar hyprpaper --answerdiff=None
   
     # Install xborders
     yes | yay -S python-cairo python-requests libwnck3 --needed --answerdiff=None
@@ -161,7 +161,7 @@ if [[ "${components}" =~ "GUI configuration" ]]; then
 
   # Download wallpaper
   sudo mkdir /usr/share/backgrounds
-  wget https://github.com/linuxdotexe/nordic-wallpapers/blob/master/wallpapers/misty_mountains.jpg
+  wget https://raw.githubusercontent.com/linuxdotexe/nordic-wallpapers/master/wallpapers/misty_mountains.jpg
   sudo mv misty_mountains.jpg /usr/share/backgrounds/
 fi
 
