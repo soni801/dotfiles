@@ -141,7 +141,10 @@ if [[ "${components}" =~ "GUI configuration" ]]; then
   if [[ "${is_arch}" == "true" ]]; then
     # Install packages
     yes | yay -S ttf-jetbrains-mono-nerd alacritty rofi polybar feh picom grim slurp wl-clipboard swaync waybar hyprpaper --answerdiff=None
-  
+ 
+    # Uninstall unneeded packages
+    yes | yay -Rns gnu-free-fonts
+
     # Install xborders
     yes | yay -S python-cairo python-requests libwnck3 --needed --answerdiff=None
     mkdir -p GitHub/xborder
