@@ -104,8 +104,9 @@ export EDITOR=nvim
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
-# gpg stuffs
-export GPG_TTY=$(tty)
+# Make gpg (pinentry) work
+# This is slightly different from the reccomended method, check https://unix.stackexchange.com/questions/608842/zshrc-export-gpg-tty-tty-says-not-a-tty
+export GPG_TTY=$TTY
 
 # Improve less
 export LESS='--mouse --wheel-lines=3'
