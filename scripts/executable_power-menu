@@ -1,0 +1,13 @@
+#!/usr/bin/env zsh
+
+selected_power_option=$(echo "Shut down\nReboot\nLog out" | wofi -di --width 100 --height 155 -x "-101" -y "15" --prompt "Search..." --location top_right)
+
+case $selected_power_option in
+  "Shut down")
+    shutdown now;;
+  "Reboot")
+    reboot;;
+  "Log out")
+    hyprctl dispatch exit;;
+esac
+

@@ -25,14 +25,18 @@ widget > * {
 }
 
 #network {
-	background: #434c5e;
+	background: #4c566a;
 }
 
 #cpu {
-	background: #3b4252;
+	background: #434c5e;
 }
 
 #memory {
-	background: #2e3440;
+	background: #3b4252;
 }
 
+#custom-power {
+	background: #2e3440;
+	padding-right: 13px;
+}

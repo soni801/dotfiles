@@ -2,7 +2,7 @@
 	"layer": "top",
 	"modules-left": ["hyprland/window"],
 	"modules-center": ["clock"],
-	"modules-right": ["network", "cpu", "memory"],
+	"modules-right": ["network", "cpu", "memory", "custom/power"],
 	"hyprland/window": {
 		"format": "\uf2d0  {title}"
 	},
@@ -23,5 +23,9 @@
 	"memory": {
 		"tooltip": false,
 		"format": " {used}G"
+	},
+	"custom/power": {
+		"format": "\u23fb",
+		"on-click": "~/scripts/power-menu"
 	}
 }
