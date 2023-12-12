@@ -1,0 +1,8 @@
+#!/usr/bin/env zsh
+
+# Get available sinks, let user choose one, and get its identifier
+selected_sink_name=$(pactl list sinks | grep "device.description" | cut -b 25- | sed 's/.$//' | wofi -di --width 400 --height 225 -x "-60" -y "15" --prompt "Search..." --location top_right)
+selected_sink_id=$(pactl list sinks | grep --after-context 1 "device.description = \"$selected_sink_name" | sed -n '2p' | cut -b 16- | sed 's/.$//')
+
+# Set default sink to the provided identifier
+pactl set-default-sink $selected_sink_id

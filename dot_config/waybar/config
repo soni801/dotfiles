@@ -2,7 +2,7 @@
 	"layer": "top",
 	"modules-left": ["hyprland/window"],
 	"modules-center": ["clock"],
-	"modules-right": ["network", "cpu", "memory", "custom/power"],
+	"modules-right": ["custom/audio", "network", "cpu", "memory", "custom/power"],
 	"hyprland/window": {
 		"format": "\uf2d0  {title}"
 	},
@@ -10,9 +10,14 @@
 		"interval": 1,
 		"format": "\uf43a  {:%a. %d %b. %H:%M:%S}"
 	},
+	"custom/audio": {
+		"format": "\uf027",
+		"on-click": "~/scripts/set-default-sink",
+		"tooltip": false
+	},
 	"network": {
 		"tooltip": false,
-		"format-wifi": " {essid} {ipaddr}",
+		"format-wifi": "\uf1eb {essid} {ipaddr}",
 		"format-ethernet": "\udb80\ude00  {ipaddr}/{cidr}"
 	},
 	"cpu": {
@@ -26,6 +31,7 @@
 	},
 	"custom/power": {
 		"format": "\u23fb",
-		"on-click": "~/scripts/power-menu"
+		"on-click": "~/scripts/power-menu",
+		"tooltip": false
 	}
 }
