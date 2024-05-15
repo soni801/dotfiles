@@ -67,7 +67,7 @@ if [[ "${is_arch}" == "true" ]]; then
 
   # Install configured packages
   if [[ "${components}" =~ "Configured packages" ]]; then
-    yes | yay -S zsh bat chezmoi neovim lsd yt-dlp asdf-vm ptsh tealdeer git-delta --needed --answerdiff=None
+    yes | yay -S zsh bat chezmoi neovim lsd yt-dlp asdf-vm ptsh tealdeer git-delta clipse --needed --answerdiff=None
   fi
 elif [[ "${is_debian}" == "true" ]]; then
   # Install required dependencies
