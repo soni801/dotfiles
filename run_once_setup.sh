@@ -164,8 +164,8 @@ if [[ "${components}" =~ "GUI configuration" ]]; then
 
   # Download wallpaper
   sudo mkdir /usr/share/backgrounds
-  wget https://raw.githubusercontent.com/linuxdotexe/nordic-wallpapers/master/wallpapers/misty_mountains.jpg
-  sudo mv misty_mountains.jpg /usr/share/backgrounds/
+  wget https://gruvbox-wallpapers.pages.dev/wallpapers/irl/Colors.png
+  sudo mv Colors.png /usr/share/backgrounds/
 fi
 
 if [[ "${components}" =~ "Configured packages" ]]; then
