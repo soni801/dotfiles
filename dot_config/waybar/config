@@ -1,14 +1,30 @@
 {
 	"layer": "top",
 	"modules-left": ["hyprland/window"],
-	"modules-center": ["clock"],
-	"modules-right": ["custom/audio", "network", "cpu", "memory", "custom/power"],
+	"modules-center": ["clock", "cpu", "custom/gpu", "memory"],
+	"modules-right": ["custom/audio", "network", "custom/power"],
 	"hyprland/window": {
-		"format": "\uf2d0  {title}"
+		"icon": true,
+		"icon-size": 18
 	},
 	"clock": {
 		"interval": 1,
-		"format": "\uf43a  {:%a. %d %b. %H:%M:%S}"
+		"format": "<span foreground=\"#fabd2f\">\uf43a</span>  {:%a. %d %b. %H:%M:%S}"
+	},
+	"cpu": {
+		"interval": 5,
+		"tooltip": false,
+		"format": "<span foreground=\"#8ec07c\">\uf4bc</span>  {}%"
+	},
+	"custom/gpu": {
+  	"exec": "nvidia-smi --query-gpu=utilization.gpu --format=csv,noheader,nounits",
+  	"format": "<span foreground=\"#83a598\" size=\"xx-large\" baseline_shift=\"-4pt\">\udb83\udfb2</span>  {}%",
+  	"return-type": "",
+  	"interval": 5
+	},
+	"memory": {
+		"tooltip": false,
+		"format": "<span foreground=\"#d3869b\">\uefc5</span>  {used}G"
 	},
 	"custom/audio": {
 		"format": "\uf027",
@@ -18,16 +34,7 @@
 	"network": {
 		"tooltip": false,
 		"format-wifi": "\uf1eb {essid} {ipaddr}",
-		"format-ethernet": "\udb80\ude00  {ipaddr}/{cidr}"
-	},
-	"cpu": {
-		"interval": 5,
-		"tooltip": false,
-		"format": "\uf4bc  {}%"
-	},
-	"memory": {
-		"tooltip": false,
-		"format": " {used}G"
+		"format-ethernet": "<span foreground=\"#83a598\">\udb80\ude00</span>  {ipaddr}/{cidr}"
 	},
 	"custom/power": {
 		"format": "\u23fb",

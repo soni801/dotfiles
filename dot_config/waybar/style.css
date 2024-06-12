@@ -43,53 +43,58 @@
 	background: transparent;
 }
 
+/* Hide window name widget when there's no active window */
+#waybar.empty #window {
+	background: transparent;
+}
+
+/* For some stupid reason i need to do basically all bar styling here */
+#waybar > .horizontal {
+	margin: 15px 15px 0;
+	padding: 5px;
+
+	border: 3px solid @bg2;
+	border-radius: 15px;
+
+	background: @bg;
+}
+
 /* All widgets */
 widget > * {
 	padding: 4px 10px;
-	margin-top: 15px;
-	margin-right: 15px;
+	margin-right: 5px;
 
-	border-radius: 12px;
+	border-radius: 10px;
 
-	background: @bg;
+	background: @bg1;
 	color: @fg;
 }
 
-/* Name of focused window */
-#window {
-	margin-left: 15px;
+/* Bring system info to the same "box" */
+#cpu {
+	margin-right: 0;
+	border-top-right-radius: 0;
+	border-bottom-right-radius: 0;
 }
 
-/* Date & time */
-#clock {
-	color: @orange;
+#custom-gpu {
+	margin-right: 0;
+	padding: 0;
+	border-radius: 0;
+}
+
+#memory {
+	border-top-left-radius: 0;
+	border-bottom-left-radius: 0;
 }
 
 /* Audio control */
 #custom-audio {
 	padding-right: 13px;
-
-	color: @aqua;
-}
-
-/* IP address/network */
-#network  {
-	color: @yellow;
-}
-
-/* CPU usage */
-#cpu {
-	color: @red;
-}
-
-/* Memory usage */
-#memory {
-	color: @purple;
 }
 
 /* Power menu */
 #custom-power {
-	padding-right: 13px;
-
-	color: @gray;
+	margin-right: 0; /* Remove margin here because it is the last widget */
+	padding-right: 14px;
 }
