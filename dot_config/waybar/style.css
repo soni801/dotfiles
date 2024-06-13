@@ -70,6 +70,11 @@ widget > * {
 	color: @fg;
 }
 
+/* App launcher */
+#custom-launcher {
+	padding-right: 13px;
+}
+
 /* Bring system info to the same "box" */
 #cpu {
 	margin-right: 0;
