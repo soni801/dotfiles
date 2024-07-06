@@ -140,7 +140,7 @@ fi
 if [[ "${components}" =~ "GUI configuration" ]]; then
   if [[ "${is_arch}" == "true" ]]; then
     # Install packages
-    yes | yay -S ttf-jetbrains-mono-nerd alacritty rofi polybar feh picom grim slurp wl-clipboard swaync waybar hyprpaper --answerdiff=None
+    yes | yay -S ttf-jetbrains-mono-nerd alacritty rofi polybar feh picom grim slurp wl-clipboard swaync waybar hyprpaper imgur.sh --answerdiff=None
  
     # Uninstall unneeded packages
     yes | yay -Rns gnu-free-fonts
