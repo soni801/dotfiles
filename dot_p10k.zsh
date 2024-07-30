@@ -38,6 +38,7 @@
     # =========================[ Line #2 ]=========================
     newline                 # \n
     # prompt_char           # prompt symbol
+    reset_cursor_shape
   )
 
   # The list of segments shown on the right. Fill it with less important segments.
@@ -1674,6 +1675,10 @@
   # Type `p10k help segment` for documentation and a more sophisticated example.
   function prompt_example() {
     p10k segment -f 208 -i '⭐' -t 'hello, %n'
+  }
+
+  function prompt_reset_cursor_shape() {
+    printf "\e[5 q"
   }
 
   # User-defined prompt segments may optionally provide an instant_prompt_* function. Its job
