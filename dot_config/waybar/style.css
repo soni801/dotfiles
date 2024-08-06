@@ -93,6 +93,11 @@ widget > * {
 	border-bottom-left-radius: 0;
 }
 
+/* Hide currently playing song when paused */
+#mpris.paused {
+	background: transparent;
+}
+
 /* Audio control */
 #custom-audio {
 	padding-right: 13px;

@@ -2,7 +2,7 @@
 	"layer": "top",
 	"modules-left": ["custom/launcher", "hyprland/window"],
 	"modules-center": ["clock", "cpu", "custom/gpu", "memory"],
-	"modules-right": ["custom/audio", "network", "custom/power"],
+	"modules-right": ["mpris", "custom/audio", "network", "custom/power"],
 	"custom/launcher": {
 		"format": "\udb82\udcc7",
 		"on-click": "wofi -aIi --show drun --width 350 --height 600 -x 15 -y 8 --prompt \"Search...\" --location top_left",
@@ -30,6 +30,14 @@
 	"memory": {
 		"tooltip": false,
 		"format": "<span foreground=\"#d3869b\">\uefc5</span>  {used}G"
+	},
+	"mpris": {
+		"ignored-players": ["firefox"],
+		"format": "{player_icon}  {artist} - {title}",
+		"format-paused": "\u200b",
+		"player-icons": {
+			"spotify": "<span foreground=\"#b8bb26\">\uf1bc</span>"
+		}
 	},
 	"custom/audio": {
 		"format": "\uf027",
