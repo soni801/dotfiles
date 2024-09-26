@@ -95,6 +95,11 @@ widget > * {
 	margin-right: 4px;
 }
 
+/* The currently active workspace */
+#workspaces button.active {
+	border: 1px solid @fg4;
+}
+
 /* Bring system info to the same "box" */
 #cpu {
 	margin-right: 0;

@@ -9,6 +9,11 @@
 		"tooltip": false
 	},
 	"hyprland/workspaces": {
+		"format": "{name}{windows}",
+		"format-window-separator": "",
+		"window-rewrite": {
+			".*": "\u2022"
+		},
   	"persistent-workspaces": {
   		"HDMI-A-1": [ 1, 2],
   		"DP-3": [ 3, 4 ],
