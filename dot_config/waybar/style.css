@@ -70,11 +70,6 @@ widget > * {
 	color: @fg;
 }
 
-/* App launcher */
-#custom-launcher {
-	padding-right: 13px;
-}
-
 /* Hyprland workspaces */
 #workspaces {
 	padding: 4px;

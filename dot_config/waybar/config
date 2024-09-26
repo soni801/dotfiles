@@ -1,13 +1,8 @@
 {
 	"layer": "top",
-	"modules-left": ["custom/launcher", "hyprland/workspaces", "hyprland/window"],
+	"modules-left": ["hyprland/workspaces", "hyprland/window"],
 	"modules-center": ["clock", "cpu", "custom/gpu", "memory"],
 	"modules-right": ["mpris", "custom/audio", "network", "custom/power"],
-	"custom/launcher": {
-		"format": "\udb82\udcc7",
-		"on-click": "wofi -aIi --show drun --width 350 --height 600 -x 15 -y 8 --prompt \"Search...\" --location top_left",
-		"tooltip": false
-	},
 	"hyprland/workspaces": {
 		"format": "{name}{windows}",
 		"format-window-separator": "",
@@ -22,7 +17,8 @@
   },
 	"hyprland/window": {
 		"icon": true,
-		"icon-size": 18
+		"icon-size": 18,
+		"on-click": "wofi -aIi --show drun --width 350 --height 600 -x 15 -y 8 --prompt \"Search...\" --location top_left"
 	},
 	"clock": {
 		"interval": 1,
