@@ -1,6 +1,6 @@
 {
 	"layer": "top",
-	"modules-left": ["custom/launcher", "hyprland/window"],
+	"modules-left": ["custom/launcher", "hyprland/workspaces", "hyprland/window"],
 	"modules-center": ["clock", "cpu", "custom/gpu", "memory"],
 	"modules-right": ["mpris", "custom/audio", "network", "custom/power"],
 	"custom/launcher": {
@@ -8,6 +8,13 @@
 		"on-click": "wofi -aIi --show drun --width 350 --height 600 -x 15 -y 8 --prompt \"Search...\" --location top_left",
 		"tooltip": false
 	},
+	"hyprland/workspaces": {
+  	"persistent-workspaces": {
+  		"HDMI-A-1": [ 1, 2],
+  		"DP-3": [ 3, 4 ],
+  		"DP-1": [ 5, 6 ]
+  	},
+  },
 	"hyprland/window": {
 		"icon": true,
 		"icon-size": 18

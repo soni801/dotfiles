@@ -75,6 +75,26 @@ widget > * {
 	padding-right: 13px;
 }
 
+/* Hyprland workspaces */
+#workspaces {
+	padding: 4px;
+}
+
+/* The individual workspace IDs */
+#workspaces button {
+	margin: 0;
+	padding: 0 4px;
+
+	border-radius: 6px;
+
+	background: @bg2;
+}
+
+/* Add spacing between the workspace IDs */
+#workspaces button:not(:last-child) {
+	margin-right: 4px;
+}
+
 /* Bring system info to the same "box" */
 #cpu {
 	margin-right: 0;
