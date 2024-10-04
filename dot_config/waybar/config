@@ -22,29 +22,29 @@
 	},
 	"clock": {
 		"interval": 1,
-		"format": "<span foreground=\"#fabd2f\">\uf43a</span>  {:%a. %d %b. %H:%M:%S}"
+		"format": "<span foreground=\"#cba6f7\">\uf43a</span>  {:%a. %d %b. %H:%M:%S}"
 	},
 	"cpu": {
 		"interval": 5,
 		"tooltip": false,
-		"format": "<span foreground=\"#8ec07c\">\uf4bc</span>  {}%"
+		"format": "<span foreground=\"#f38ba8\">\uf4bc</span>  {}%"
 	},
 	"custom/gpu": {
   	"exec": "nvidia-smi --query-gpu=utilization.gpu --format=csv,noheader,nounits",
-  	"format": "<span foreground=\"#83a598\" size=\"xx-large\" baseline_shift=\"-4pt\">\udb83\udfb2</span>  {}%",
+  	"format": "<span foreground=\"#fab387\" size=\"xx-large\" baseline_shift=\"-4pt\">\udb83\udfb2</span>  {}%",
   	"return-type": "",
   	"interval": 5
 	},
 	"memory": {
 		"tooltip": false,
-		"format": "<span foreground=\"#d3869b\">\uefc5</span>  {used}G"
+		"format": "<span foreground=\"#f9e2af\">\uefc5</span>  {used}G"
 	},
 	"mpris": {
 		"ignored-players": ["firefox"],
 		"format": "{player_icon}  {artist} - {title}",
 		"format-paused": "\u200b",
 		"player-icons": {
-			"spotify": "<span foreground=\"#b8bb26\">\uf1bc</span>"
+			"spotify": "<span foreground=\"#a6e3a1\">\uf1bc</span>"
 		}
 	},
 	"custom/audio": {
@@ -55,7 +55,7 @@
 	"network": {
 		"tooltip": false,
 		"format-wifi": "\uf1eb {essid} {ipaddr}",
-		"format-ethernet": "<span foreground=\"#83a598\">\udb80\ude00</span>  {ipaddr}/{cidr}"
+		"format-ethernet": "<span foreground=\"#89b4fa\">\udb80\ude00</span>  {ipaddr}/{cidr}"
 	},
 	"custom/power": {
 		"format": "\u23fb",

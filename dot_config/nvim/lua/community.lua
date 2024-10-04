@@ -6,7 +6,7 @@
 return {
   "AstroNvim/astrocommunity",
   -- Color theme
-  { import = "astrocommunity.colorscheme.gruvbox-nvim" },
+  { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
   -- Language packs
   { import = "astrocommunity.pack.lua" },
   -- import/override with your plugins folder
