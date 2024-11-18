@@ -2,7 +2,7 @@
 	"layer": "top",
 	"modules-left": ["hyprland/workspaces", "hyprland/window"],
 	"modules-center": ["clock", "cpu", "custom/gpu", "memory"],
-	"modules-right": ["mpris", "custom/audio", "network", "custom/power"],
+	"modules-right": ["mpris", "network", "custom/audio", "custom/power"],
 	"hyprland/workspaces": {
 		"format": "{name}{windows}",
 		"format-window-separator": "",
@@ -47,15 +47,15 @@
 			"spotify": "<span foreground=\"#a6e3a1\">\uf1bc</span>"
 		}
 	},
-	"custom/audio": {
+	"network": {
+		"tooltip-format": "{ifname}: {ipaddr}/{cidr}",
+		"format": "<span foreground=\"#89b4fa\">\udb80\ude00</span>  <span foreground=\"#6c7086\">\uf063</span> {bandwidthDownBits} <span foreground=\"#6c7086\">\uf062</span> {bandwidthUpBits}",
+		"interval": 5
+	},
+  "custom/audio": {
 		"format": "\uf027",
 		"on-click": "~/scripts/set-default-sink",
 		"tooltip": false
-	},
-	"network": {
-		"tooltip": false,
-		"format-wifi": "\uf1eb {essid} {ipaddr}",
-		"format-ethernet": "<span foreground=\"#89b4fa\">\udb80\ude00</span>  {ipaddr}/{cidr}"
 	},
 	"custom/power": {
 		"format": "\u23fb",
